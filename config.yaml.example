@@ -1,7 +1,7 @@
 obs:
   host: "localhost"
   port: 4455
-  password: "RpG37k9n41xhoaGP"
+  password: ""
   source_name: "Forza"
 
 capture:

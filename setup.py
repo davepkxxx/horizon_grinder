@@ -128,9 +128,16 @@ def setup_scene(config_dir: Path, source_name: str = "Forza"):
 
 def update_project_config(password: str):
     config_path = Path("config.yaml")
+    example_path = Path("config.yaml.example")
+
     if not config_path.exists():
-        print("  Warning: config.yaml not found in current directory.")
-        return
+        if example_path.exists():
+            import shutil
+            shutil.copy2(example_path, config_path)
+            print("  Created config.yaml from config.yaml.example")
+        else:
+            print("  Warning: config.yaml.example not found, skipping config update.")
+            return
 
     with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
@@ -140,7 +147,7 @@ def update_project_config(password: str):
     config["obs"]["source_name"] = "Forza"
 
     with open(config_path, "w", encoding="utf-8") as f:
-        yaml.dump(config, f, default_flow_style=False, allow_unicode=True)
+        yaml.dump(config, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     print("  Updated config.yaml with WebSocket password.")
 
