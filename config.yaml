@@ -1,0 +1,31 @@
+obs:
+  host: "localhost"
+  port: 4455
+  password: "RpG37k9n41xhoaGP"
+  source_name: "Forza"
+
+capture:
+  interval_seconds: 0.3
+
+ocr:
+  roi:
+    x: 0.03
+    y: 0.55
+    w: 0.50
+    h: 0.40
+  trigger_texts:
+    - "重新开始"
+  confidence_threshold: 0.7
+
+restart:
+  keys:
+    - key: "x"
+      delay: 1.0
+    - key: "enter"
+      delay: 0.3
+  cooldown_seconds: 10
+  start_trigger: "开始竞赛赛事"
+
+logging:
+  level: "INFO"
+  file: "grinder.log"
