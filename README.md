@@ -19,23 +19,25 @@ Forza Horizon 6 Blueprint auto-grinder. Automatically restarts and replays Bluep
 
 ## Setup
 
-### 1. Install OBS Studio
-Enable WebSocket: **Tools → WebSocket Server Settings → Enable** (port 4455)
-
-Add a **Game Capture** source named `Forza` (or match `source_name` in config).
-
-### 2. Install dependencies
+### 1. Install dependencies
 ```powershell
 pip install -r requirements.txt
 ```
 
-### 3. Configure
-Edit `config.yaml`:
-- `obs.password` — your OBS WebSocket password
-- `obs.source_name` — OBS source name (default: "Forza")
-- `ocr.roi` — region of interest for text detection (tune if detection is unreliable)
-- `restart.keys` — key sequence and delays
-- `restart.cooldown_seconds` — pause between cycles
+### 2. Run setup script
+```powershell
+python setup.py
+```
+
+This will automatically:
+- Enable OBS WebSocket (port 4455)
+- Add a "Forza" Game Capture source to your OBS scene
+- Update `config.yaml` with the WebSocket password
+
+### 3. Configure OBS
+1. Launch OBS (or restart if already running)
+2. Start Forza Horizon 6 in borderless window mode
+3. In OBS, select the "Forza" source → Properties → choose the Forza game window
 
 ### 4. Run
 ```powershell

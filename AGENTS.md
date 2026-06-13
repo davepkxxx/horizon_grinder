@@ -6,7 +6,7 @@ Forza Horizon 6 Blueprint auto-grinder. Captures game frames via OBS WebSocket, 
 ## Quick Start
 ```powershell
 pip install -r requirements.txt
-# Ensure OBS is running with WebSocket enabled and a game capture source named "Forza"
+python setup.py          # Auto-configures OBS WebSocket + Game Capture source
 python main.py
 ```
 
